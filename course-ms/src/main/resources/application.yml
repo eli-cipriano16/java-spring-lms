@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: course-ms
+  cloud:
+    config:
+      #uri: http://spring-cloud-config:8888 #docker
+      uri: http://localhost:8888
+      failFast: true
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

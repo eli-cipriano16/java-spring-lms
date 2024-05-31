@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: course-query-ms
+  cloud:
+    config:
+      #uri: http://spring-cloud-config:8888 #docker
+      uri: http://localhost:8888
+      failFast: true
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: com.lms.course_query_ms.dto

@@ -1,0 +1,12 @@
+server:
+  port: 9300
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://netflix-eureka:8761/eureka #docker
+      defaultZone: http://localhost:8761/eureka
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/lms_db
+      #uri: mongodb://mongodb:27017/lms_db #docker
