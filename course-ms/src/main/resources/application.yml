@@ -1,11 +1,8 @@
 spring:
   application:
     name: course-ms
-  cloud:
-    config:
-      #uri: http://spring-cloud-config:8888 #docker
-      uri: http://localhost:8888
-      failFast: true
+  config:
+    import: "configserver:http://localhost:8888"
   kafka:
     producer:
       bootstrap-servers: localhost:9092

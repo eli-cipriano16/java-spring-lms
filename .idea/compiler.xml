@@ -8,10 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="course-query-ms" />
-        <module name="spring-cloud-api" />
         <module name="user-ms" />
-        <module name="eureka" />
-        <module name="spring-cloud-config" />
+        <module name="spring-cloud-config-ms" />
+        <module name="eureka-ms" />
+        <module name="spring-cloud-api-ms" />
         <module name="course-ms" />
       </profile>
     </annotationProcessing>
@@ -24,9 +24,9 @@
       <module name="course-ms" options="-parameters" />
       <module name="course-query-ms" options="-parameters" />
       <module name="courses-ms" options="-parameters" />
-      <module name="eureka" options="-parameters" />
-      <module name="spring-cloud-api" options="-parameters" />
-      <module name="spring-cloud-config" options="-parameters" />
+      <module name="eureka-ms" options="-parameters" />
+      <module name="spring-cloud-api-ms" options="-parameters" />
+      <module name="spring-cloud-config-ms" options="-parameters" />
       <module name="user-ms" options="-parameters" />
     </option>
   </component>

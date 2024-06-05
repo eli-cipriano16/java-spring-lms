@@ -1,0 +1,53 @@
+eureka:
+  client:
+    serviceUrl:
+      # defaultZone: http://netflix-eureka:8761/eureka #docker
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: true
+server:
+  port: 8765
+  forward-headers-strategy: framework
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        ssl:
+          useInsecureTrustManager: true
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: course-ms
+          uri: lb://course-ms
+          predicates:
+            - Path=/course/**
+          filters:
+            - RewritePath=/course/(?<path>.*), /$\{path}
+        - id: course-query-ms
+          uri: lb://course-query-ms
+          predicates:
+            - Path=/course-query/**
+          filters:
+            - RewritePath=/course-query/(?<path>.*), /$\{path}
+        - id: user-ms
+          uri: lb://user-ms
+          predicates:
+            - Path=/user/**
+          filters:
+            - RewritePath=/user/(?<path>.*), /$\{path}
+        - id: openapi
+          uri: http://localhost:${server.port}
+          predicates:
+            - Path=/v3/api-docs/**
+          filters:
+            - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+
+springdoc:
+  cache:
+    disabled: true
+  version: '@springdoc.version@'
+  swagger-ui:
+    use-root-path: true
+  api-docs:
+    version: openapi_3_0

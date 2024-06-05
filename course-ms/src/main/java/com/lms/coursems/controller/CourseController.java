@@ -13,7 +13,6 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/lms/course")
 public class CourseController {
 
     @Autowired

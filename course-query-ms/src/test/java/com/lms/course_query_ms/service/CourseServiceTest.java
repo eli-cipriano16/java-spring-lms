@@ -13,6 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.kafka.core.KafkaTemplate;
 
 import java.util.List;
 
@@ -26,6 +27,9 @@ public class CourseServiceTest {
 
     @InjectMocks
     private CourseServiceImpl coursesService;
+
+    @Mock
+    private KafkaTemplate<String, Object> kafkaTemplate;
 
     private CourseWrapper coursesWrapper;
 

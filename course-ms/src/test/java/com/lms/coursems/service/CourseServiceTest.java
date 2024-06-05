@@ -12,6 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.kafka.core.KafkaTemplate;
 
 import java.util.Date;
 
@@ -27,6 +28,9 @@ public class CourseServiceTest {
     private CourseServiceImpl courseService;
 
     private CourseWrapper courseWrapper;
+
+    @Mock
+    private KafkaTemplate<String, Object> kafkaTemplate;
 
     @BeforeEach
     public void init() {
@@ -88,7 +92,6 @@ public class CourseServiceTest {
         courses.setDescription(courseWrapper.getDescription());
         courses.setTechnology(courseWrapper.getTechnology());
         courses.setLaunchUrl(courseWrapper.getLaunchUrl());
-        courses.setCreatedDate(new Date());
         when(coursesRepository.save(Mockito.any(Course.class))).thenReturn(courses);
         CourseWrapper savedCourse = courseService.saveCourse(courseWrapper);
         Assertions.assertThat(savedCourse).isNotNull();

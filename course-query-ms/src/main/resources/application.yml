@@ -1,11 +1,8 @@
 spring:
   application:
     name: course-query-ms
-  cloud:
-    config:
-      #uri: http://spring-cloud-config:8888 #docker
-      uri: http://localhost:8888
-      failFast: true
+  config:
+    import: "configserver:http://localhost:8888"
   kafka:
     consumer:
       bootstrap-servers: localhost:9092
@@ -15,4 +12,6 @@ spring:
         spring:
           json:
             trusted:
-              packages: com.lms.course_query_ms.dto
+              packages: com.lms.coursems.dto
+            type:
+              mapping: com.lms.coursems.dto.CourseEvent:com.lms.course_query_ms.dto.CourseEvent

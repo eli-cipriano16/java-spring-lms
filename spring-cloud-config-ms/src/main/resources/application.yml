@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: spring-cloud-config-ms
+  profiles:
+    active: native
+server:
+  port: 8888

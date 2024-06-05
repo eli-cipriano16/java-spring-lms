@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/lms/user/")
 public class UserController {
 
     private static final Logger LOG = LogManager.getLogger(UserController.class);

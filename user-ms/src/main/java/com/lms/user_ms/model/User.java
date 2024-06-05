@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 
 @Data
@@ -14,9 +13,9 @@ import org.springframework.data.annotation.Id;
 public class User {
 
     @Id
-    @SequenceGenerator(name="TEACHER_ID_GENERATOR", sequenceName="TEACHER_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="TEACHER_ID_GENERATOR")
-    private String id;
+    @SequenceGenerator(name="USER_ID_GENERATOR", sequenceName="USER_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="USER_ID_GENERATOR")
+    private Long id;
     private String username;
     private String email;
     private String password;

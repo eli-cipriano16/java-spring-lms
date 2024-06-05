@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 
@@ -13,18 +12,30 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name="course")
 public class Course {
 
     @Id
-    @SequenceGenerator(name="TEACHER_ID_GENERATOR", sequenceName="TEACHER_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="TEACHER_ID_GENERATOR")
-    private String id;
+    @SequenceGenerator(name="COURSE_ID_GENERATOR", sequenceName="COURSE_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="COURSE_ID_GENERATOR")
+    private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "duration")
     private Integer duration;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "technology")
     private String technology;
+
+    @Column(name = "launch_url")
     private String launchUrl;
-    private Date createdDate;
+
+    @Column(name = "del")
     private Integer del = 0;
 
     public Course(String name, Integer duration,

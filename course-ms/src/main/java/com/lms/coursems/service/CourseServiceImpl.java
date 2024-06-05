@@ -111,7 +111,6 @@ public class CourseServiceImpl implements CourseService {
         course.setDescription(requestBody.getDescription());
         course.setTechnology(requestBody.getTechnology());
         course.setLaunchUrl(requestBody.getLaunchUrl());
-        course.setCreatedDate(new Date());
         Course courseSaved = courseRepository.save(course);
         CourseEvent event = new CourseEvent("CreateCourse", courseSaved);
         kafkaTemplate.send("course-event-topic", event);

@@ -62,7 +62,7 @@ public class CourseControllerTest {
         coursesSearchResults.setCourseList(courseList);
         when(coursesService.getAllCoursesByTech(technology)).thenReturn(coursesSearchResults);
 
-        ResultActions response = mockMvc.perform(get("/lms/courses/info/Engineering")
+        ResultActions response = mockMvc.perform(get("/info/Engineering")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(coursesSearchResults)));
 
@@ -77,7 +77,7 @@ public class CourseControllerTest {
         coursesSearchResults.setCourseList(new ArrayList<>());
         when(coursesService.getAllCoursesByTech(technology)).thenReturn(coursesSearchResults);
 
-        ResultActions response = mockMvc.perform(get("/lms/courses/info/Engineering")
+        ResultActions response = mockMvc.perform(get("/info/Engineering")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(coursesSearchResults)));
 
@@ -90,7 +90,7 @@ public class CourseControllerTest {
         coursesSearchResults.setCourseList(courseList);
         when(coursesService.getAllCourses()).thenReturn(coursesSearchResults);
 
-        ResultActions response = mockMvc.perform(get("/lms/courses/getall")
+        ResultActions response = mockMvc.perform(get("/getall")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(coursesSearchResults)));
 
@@ -103,7 +103,7 @@ public class CourseControllerTest {
         coursesSearchResults.setCourseList(new ArrayList<>());
         when(coursesService.getAllCourses()).thenReturn(coursesSearchResults);
 
-        ResultActions response = mockMvc.perform(get("/lms/courses/getall")
+        ResultActions response = mockMvc.perform(get("/getall")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(coursesSearchResults)));
 
@@ -119,7 +119,7 @@ public class CourseControllerTest {
         coursesSearchResults.setCourseList(courseList);
         when(coursesService.getAllCoursesByDurationRangeAndTech(technology, durationFrom, durationTo)).thenReturn(coursesSearchResults);
 
-        ResultActions response = mockMvc.perform(get("/lms/courses/get/Engineering/1/3")
+        ResultActions response = mockMvc.perform(get("/get/Engineering/1/3")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(coursesSearchResults)));
 
@@ -135,7 +135,7 @@ public class CourseControllerTest {
         coursesSearchResults.setCourseList(new ArrayList<>());
         when(coursesService.getAllCoursesByDurationRangeAndTech(technology, durationFrom, durationTo)).thenReturn(coursesSearchResults);
 
-        ResultActions response = mockMvc.perform(get("/lms/courses/get/IT/1/3")
+        ResultActions response = mockMvc.perform(get("/get/IT/1/3")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(coursesSearchResults)));
 

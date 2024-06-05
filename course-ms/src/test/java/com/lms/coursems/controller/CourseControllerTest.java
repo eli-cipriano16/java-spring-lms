@@ -61,7 +61,7 @@ public class CourseControllerTest {
     public void testAddCourse () throws Exception {
         given(coursesService.saveCourse(ArgumentMatchers.any())).willAnswer(invocation -> invocation.getArgument(0));
 
-        ResultActions response = mockMvc.perform(post("/lms/courses/add")
+        ResultActions response = mockMvc.perform(post("/add")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(coursesWrapper)));
 
@@ -79,7 +79,7 @@ public class CourseControllerTest {
 
         doNothing().when(coursesService).deleteCourse(courseName);
 
-        ResultActions response = mockMvc.perform(delete("/lms/courses/delete/" + courseName)
+        ResultActions response = mockMvc.perform(delete("/delete/" + courseName)
                 .contentType(MediaType.APPLICATION_JSON));
 
         response.andExpect(MockMvcResultMatchers.status().is2xxSuccessful());
@@ -92,7 +92,7 @@ public class CourseControllerTest {
 
         doThrow(new CourseNotFoundException("Course not found")).when(coursesService).deleteCourse(courseName);
 
-        ResultActions response = mockMvc.perform(delete("/lms/courses/delete/" + courseName)
+        ResultActions response = mockMvc.perform(delete("/delete/" + courseName)
                 .contentType(MediaType.APPLICATION_JSON));
 
         response.andExpect(MockMvcResultMatchers.status().is4xxClientError());

@@ -44,7 +44,7 @@ public class UserControllerTest {
     public void testRegister() throws Exception {
         given(userService.saveUser(ArgumentMatchers.any())).willAnswer(invocation -> invocation.getArgument(0));
 
-        ResultActions response = mockMvc.perform(post("/lms/company/register")
+        ResultActions response = mockMvc.perform(post("/register")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(userWrapper)));
 

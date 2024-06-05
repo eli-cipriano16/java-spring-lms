@@ -27,7 +27,7 @@ public class UserServiceTest {
     private PasswordUtility passwordUtility;
 
     @InjectMocks
-    private UserServiceImpl teacherService;
+    private UserServiceImpl userService;
 
     private UserWrapper userWrapper;
 
@@ -85,15 +85,15 @@ public class UserServiceTest {
         user.setEmail(userWrapper.getEmail());
         user.setPassword(passwordUtility.getEncryptedPw(userWrapper.getPassword()));
         when(userRepository.save(Mockito.any(User.class))).thenReturn(user);
-        UserWrapper savedUser = teacherService.saveUser(userWrapper);
+        UserWrapper savedUser = userService.saveUser(userWrapper);
         Assertions.assertThat(savedUser).isNotNull();
     }
 
     private void testValidateAllFieldsPositiveScenario(UserWrapper requestBody) throws ValidationException {
-        assertDoesNotThrow(() -> teacherService.validateAllFields(requestBody));
+        assertDoesNotThrow(() -> userService.validateAllFields(requestBody));
     }
 
     private void testValidateAllFieldsNegativeScenario(UserWrapper requestBody) throws ValidationException {
-        assertThrows(ValidationException.class, () -> teacherService.validateAllFields(requestBody));
+        assertThrows(ValidationException.class, () -> userService.validateAllFields(requestBody));
     }
 }
