@@ -10,9 +10,6 @@ Backend is divided into following parts:
 * spring-cloud-config
 * spring-cloud-api
 
-  #### In progress:
-
-  * Debugging Eureka
-  * Testing junit mockito for course-ms, course-query-ms, user-ms
-  * Testing OpenAPI
-  * Testing Kafka
+  #### To work on in the future:
+  * Implement in Docker/Kubernetes
+  * Prometheus/Grafana
